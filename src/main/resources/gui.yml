@@ -1,0 +1,117 @@
+type: 'none'
+size: 54
+name: '&5&lEnvoy Loot Editor &7(Page &f#{page}&7)'
+fillers:
+  slots:
+    - 45
+    - 46
+    - 47
+    - 49
+    - 51
+    - 52
+  material: 'stained_glass_pane'
+  data: 7
+  name: ' '
+  lore:
+  enchantments:
+  item-flags:
+    - 'hide_attributes'
+envoy-item:
+  slots:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+    - 44
+  additional-lore:
+    - '&8&m-------------------------'
+    - '&7Chance: &b{chance}'
+    - '&cRight-Click &7to remove this'
+    - '&7item from the loot table.'
+    - '&8&m-------------------------'
+1:
+  slots:
+    - 48
+  action: 'previous'
+  material: 'arrow'
+  data: 0
+  name: '&c&lPrevious Page'
+  lore:
+    - ''
+    - '&7Return to the previous page,'
+    - '&7if there is one available.'
+    - ''
+  enchantments:
+    - 'lure:1'
+  item-flags:
+    - 'hide_enchants'
+2:
+  slots:
+    - 50
+  action: 'next'
+  material: 'arrow'
+  data: 0
+  name: '&c&lNext Page'
+  lore:
+    - ''
+    - '&7Advance to the next page,'
+    - '&7if there is one available.'
+    - ''
+  enchantments:
+    - 'lure:1'
+  item-flags:
+    - 'hide_enchants'
+3:
+  slots:
+    - 53
+  action: 'close'
+  material: 'barrier'
+  data: 0
+  name: '&c&lClose'
+  lore:
+    - ''
+    - '&7Close this menu.'
+    - ''
+  enchantments:
+  item-flags:
+    - 'hide_attributes'

@@ -1,0 +1,13 @@
+name: Envoys
+version: ${project.version}
+main: gg.steve.mc.joshc28.envoy.Envoys
+api-version: 1.13
+prefix: Envoys
+authors: [stevegoodhill]
+description: Envoy plugin developed for JoshC28 using the Spigot API.
+commands:
+  envoy:
+    usage: /<command>
+    description: Use this command to view the time until the next envoy event.
+    aliases:
+      - envoys

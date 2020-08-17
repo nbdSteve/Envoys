@@ -1,0 +1,44 @@
+block:
+  material: 'chest'
+  data: 0
+
+spawn-height: 250.0
+
+items-per-envoy: 2
+
+interval: 60 # time in minutes
+
+blocked-worlds:
+  - 'world_the_end'
+  - 'world_nether'
+
+flare-item:
+  material: 'redstone_torch_on'
+  data: 0
+  name: '&c&lEnvoy Flare'
+  lore:
+    - ''
+    - '&7&o((&4&oRight-click with this item to'
+    - '&4&otrigger an envoy event for the server&7&o.))'
+    - ''
+  enchantments:
+    - 'lure:1'
+  item-flags:
+    - 'hide_attributes'
+  unbreakable: false
+
+tool-item:
+  material: 'golden_axe'
+  data: 0
+  name: '&c&lEnvoy Tool'
+  lore:
+    - ''
+    - '&aLeft-Click &7to add an envoy block.'
+    - '&cRight-Click &7to remove an envoy block.'
+    - ''
+  enchantments:
+    - 'lure:1'
+  item-flags:
+    - 'hide_enchants'
+    - 'hide_attributes'
+  unbreakable: true

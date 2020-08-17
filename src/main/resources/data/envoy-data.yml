@@ -1,0 +1,9 @@
+active: false
+time: 60 # minutes
+envoy-blocks:
+  #5ef68553-4c33-45eb-805b-2b6f5528bc5d:
+  #  active: false
+  #  world: world
+  #  x: 0
+  #  y: 100
+  #  z: 0

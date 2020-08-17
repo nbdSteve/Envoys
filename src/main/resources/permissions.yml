@@ -1,0 +1,10 @@
+command:
+  reload: 'envoys.reload'
+  help: 'envoys.help'
+  start: 'envoys.start'
+  stop: 'envoys.stop'
+  set: 'envoys.set'
+  time: 'envoys.time'
+  give: 'envoys.give'
+  add: 'envoys.add'
+  view: 'envoys.view'
