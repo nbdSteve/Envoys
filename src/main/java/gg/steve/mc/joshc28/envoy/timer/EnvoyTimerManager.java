@@ -2,6 +2,7 @@ package gg.steve.mc.joshc28.envoy.timer;
 
 import gg.steve.mc.joshc28.envoy.Envoys;
 import gg.steve.mc.joshc28.envoy.block.EnvoyBlockManager;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import gg.steve.mc.joshc28.envoy.framework.utils.TimeUtil;
 import gg.steve.mc.joshc28.envoy.framework.yml.Files;
 import org.bukkit.Bukkit;
@@ -17,16 +18,18 @@ public class EnvoyTimerManager {
         active = Files.ENVOY_DATA.get().getBoolean("active");
         task = Bukkit.getScheduler().runTaskTimer(Envoys.getInstance(), () -> {
             if (active) return;
-            if (time == 30) {
-
-            } else if (time == 10) {
-
-            } else if (time == 5) {
-
-            } else if (time == 1) {
-
-            } else if (time == 0) {
-                start();
+            switch (time) {
+                case 30:
+                case 10:
+                case 5:
+                case 1:
+                    GeneralMessage.TIME_BROADCAST.broadcast(Envoys.getInstance(), getTime().getHours(), getTime().getMinutes());
+                    break;
+                case 0:
+                    start(false);
+                    break;
+                default:
+                    break;
             }
             time--;
         }, 0L, 1800L);
@@ -39,21 +42,22 @@ public class EnvoyTimerManager {
         Files.ENVOY_DATA.save();
     }
 
-    public static boolean start() {
+    public static boolean start(boolean flare) {
         if (active) return false;
         EnvoyBlockManager.despawnAllBlocks();
         EnvoyBlockManager.spawnAllBlocks();
         active = true;
-        time = Files.CONFIG.get().getInt("interval");
+        if (!flare) time = Files.CONFIG.get().getInt("interval");
+        GeneralMessage.START_BROADCAST.broadcast(Envoys.getInstance());
         return true;
     }
 
     public static boolean stop() {
         if (!active) return false;
-        Bukkit.broadcastMessage("The envoy has ended, check back soon!");
         EnvoyBlockManager.despawnAllBlocks();
         active = false;
-        time = Files.CONFIG.get().getInt("interval");
+        //time = Files.CONFIG.get().getInt("interval");
+        GeneralMessage.END_BROADCAST.broadcast(Envoys.getInstance());
         return true;
     }
 

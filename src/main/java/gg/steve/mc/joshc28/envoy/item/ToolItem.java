@@ -2,8 +2,10 @@ package gg.steve.mc.joshc28.envoy.item;
 
 import gg.steve.mc.joshc28.envoy.block.EnvoyBlock;
 import gg.steve.mc.joshc28.envoy.block.EnvoyBlockManager;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import gg.steve.mc.joshc28.envoy.framework.nbt.NBTItem;
 import gg.steve.mc.joshc28.envoy.framework.utils.ItemBuilderUtil;
+import gg.steve.mc.joshc28.envoy.framework.utils.LogUtil;
 import gg.steve.mc.joshc28.envoy.framework.yml.Files;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -55,12 +57,12 @@ public class ToolItem implements Listener {
                 if (!EnvoyBlockManager.isEnvoyBlock(block)) return;
                 EnvoyBlock envoyBlock = EnvoyBlockManager.getEnvoyBlockFromBlock(block);
                 EnvoyBlockManager.removeEnvoyBlock(envoyBlock.getUuid());
-                event.getPlayer().sendMessage(ChatColor.RED + "You have successfully removed an envoy block.");
+                GeneralMessage.REMOVE_ENVOY_BLOCK.message(event.getPlayer());
                 break;
             case LEFT_CLICK_BLOCK:
                 if (EnvoyBlockManager.isEnvoyBlock(block)) return;
                 EnvoyBlockManager.addEnvoyBlock(block.getLocation());
-                event.getPlayer().sendMessage(ChatColor.GREEN + "You have successfully added an envoy block.");
+                GeneralMessage.ADD_ENVOY_BLOCK.message(event.getPlayer());
                 break;
         }
     }

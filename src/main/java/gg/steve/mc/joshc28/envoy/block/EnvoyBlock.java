@@ -11,6 +11,7 @@ import org.bukkit.block.Block;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class EnvoyBlock {
@@ -19,6 +20,7 @@ public class EnvoyBlock {
     private int x, y, z;
     private Location location;
     private boolean active;
+    private Random random;
 
     public EnvoyBlock(UUID uuid, Location location) {
         this.uuid = uuid;
@@ -28,6 +30,7 @@ public class EnvoyBlock {
         this.z = location.getBlockZ();
         this.location = location;
         this.active = EnvoyTimerManager.isActive();
+        this.random = new Random();
     }
 
     public EnvoyBlock(UUID uuid, ConfigurationSection config) {
@@ -38,6 +41,7 @@ public class EnvoyBlock {
         this.y = config.getInt("y");
         this.z = config.getInt("z");
         this.location = new Location(this.world, this.x, this.y, this.z);
+        this.random = new Random();
     }
 
     public void save() {
@@ -59,7 +63,7 @@ public class EnvoyBlock {
 
     public void purge() {
         ConfigurationSection config = Files.ENVOY_DATA.get().getConfigurationSection("envoy-blocks");
-        if (config.getConfigurationSection(String.valueOf(this.uuid)) == null) return;
+        if (config == null || config.getConfigurationSection(String.valueOf(this.uuid)) == null) return;
         config.set(String.valueOf(this.uuid), null);
         Files.ENVOY_DATA.save();
     }
@@ -78,7 +82,9 @@ public class EnvoyBlock {
 
     public boolean doReward(Player player) {
         if (!this.active) return false;
-        for (int i = 0; i < Files.CONFIG.get().getInt("items-per-envoy"); i++) {
+        int min = Files.CONFIG.get().getInt("items-per-envoy.min"), max = Files.CONFIG.get().getInt("items-per-envoy.max");
+        int amt = this.random.nextInt((max - min) + 1) + min;
+        for (int i = 0; i < amt; i++) {
             if (player.getInventory().firstEmpty() == -1) {
                 player.getWorld().dropItemNaturally(player.getLocation(), LootManager.getRandomItem());
             } else {

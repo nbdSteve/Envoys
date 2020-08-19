@@ -1,11 +1,12 @@
 package gg.steve.mc.joshc28.envoy.cmd.subs;
 
 import gg.steve.mc.joshc28.envoy.framework.cmd.SubCommand;
+import gg.steve.mc.joshc28.envoy.framework.message.DebugMessage;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import gg.steve.mc.joshc28.envoy.framework.permission.PermissionNode;
 import gg.steve.mc.joshc28.envoy.item.EnvoyItem;
 import gg.steve.mc.joshc28.envoy.item.ToolItem;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -22,9 +23,9 @@ public class GiveSubCmd extends SubCommand {
         Player target;
         try {
             target = Bukkit.getPlayer(args[1]);
-            if (target == null) throw new Exception();
+            if (target == null || !target.isOnline()) throw new Exception();
         } catch (Exception e) {
-            sender.sendMessage(ChatColor.RED + "Error, that player is not online.");
+            DebugMessage.TARGET_NOT_ONLINE.message(sender);
             return true;
         }
         int amt = 1;
@@ -33,18 +34,24 @@ public class GiveSubCmd extends SubCommand {
                 amt = Integer.parseInt(args[3]);
                 if (amt <= 0) throw new NumberFormatException();
             } catch (NumberFormatException e) {
-                sender.sendMessage(ChatColor.RED + "Error, please enter a valid integer that is more than 0.");
+                DebugMessage.INVALID_AMOUNT.message(sender);
                 return true;
             }
         }
         if (args[2].equalsIgnoreCase("flare") || args[2].equalsIgnoreCase("f")) {
             EnvoyItem.giveItem(target, amt);
-            target.sendMessage(ChatColor.GOLD + "You have received " + amt + "x envoy flare(s).");
+            GeneralMessage.GIVE_RECEIVER.message(target, String.valueOf(amt), "flare");
+            if (sender instanceof Player && sender != target) {
+                GeneralMessage.GIVE_GIVER.message(sender, String.valueOf(amt), "flare", target.getName());
+            }
         } else if (args[2].equalsIgnoreCase("tool") || args[2].equalsIgnoreCase("t")) {
             ToolItem.giveItem(target, amt);
-            target.sendMessage(ChatColor.GOLD + "You have received " + amt + "x envoy editor tool(s).");
+            GeneralMessage.GIVE_RECEIVER.message(target, String.valueOf(amt), "editor tool");
+            if (sender instanceof Player && sender != target) {
+                GeneralMessage.GIVE_GIVER.message(sender, String.valueOf(amt), "editor tool", target.getName());
+            }
         } else {
-            sender.sendMessage(ChatColor.RED + "Error, invalid item type, try 'tool' or 'flare'.");
+            DebugMessage.INVALID_TYPE.message(sender);
             return true;
         }
         return true;

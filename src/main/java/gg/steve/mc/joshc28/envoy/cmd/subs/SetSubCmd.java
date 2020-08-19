@@ -1,9 +1,10 @@
 package gg.steve.mc.joshc28.envoy.cmd.subs;
 
 import gg.steve.mc.joshc28.envoy.framework.cmd.SubCommand;
+import gg.steve.mc.joshc28.envoy.framework.message.DebugMessage;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import gg.steve.mc.joshc28.envoy.framework.permission.PermissionNode;
 import gg.steve.mc.joshc28.envoy.timer.EnvoyTimerManager;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 public class SetSubCmd extends SubCommand {
@@ -19,11 +20,11 @@ public class SetSubCmd extends SubCommand {
             interval = Integer.parseInt(args[1]);
             if (interval <= 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
-            sender.sendMessage(ChatColor.RED + "Error, please enter a valid integer that is more than 0.");
+            DebugMessage.INVALID_AMOUNT.message(sender);
             return true;
         }
         EnvoyTimerManager.setTime(interval);
-        sender.sendMessage(ChatColor.GREEN + "You have updated the interval time, envoys will now spawn every " + args[1] + " minutes.");
+        GeneralMessage.UPDATE_INTERVAL.message(sender, args[1]);
         return true;
     }
 }

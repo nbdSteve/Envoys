@@ -7,3 +7,73 @@ reload:
   action-bar: false
   text:
     - '&5&lEnvoys&d| &7Example reload message&7.'
+
+time-broadcast:
+  action-bar: false
+  text:
+    - '&c&lALERT! &8// &7There is an envoy event happening in &6{hours}H&7, &6{minutes}M&7.'
+
+start-broadcast:
+  action-bar: false
+  text:
+    - '&c&lALERT! &8// &7A new envoy event has just started.'
+
+end-broadcast:
+  action-bar: false
+  text:
+    - '&c&lALERT! &8// &7The envoy event has finished.'
+
+time-query:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7A new envoy event is happening in &6{hours}H&7, &6{minutes}M&7.'
+
+loot-envoy-block:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have looted an envoy crate.'
+
+envoy-start-player:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have started a new envoy.'
+
+add-envoy-block:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have added a new envoy block, &cright-click &7to remove it.'
+
+remove-envoy-block:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have removed an envoy block, &aleft-click &7it to re-add it.'
+
+envoy-active:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7There is already an envoy event running.'
+
+no-envoy-active:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7There is not an envoy active.'
+
+add-loot-item:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have added that item to the envoy loot table.'
+
+give-giver:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have given &b{target} &6{amount}x &7envoy &e{type}&7(s).'
+
+give-receiver:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have received &6{amount}x &7envoy &e{type}&7(s).'
+
+update-interval:
+  action-bar: false
+  text:
+    - '&5&lEnvoys&d| &7You have updated the envoy spawn interval to &6{interval} &7minutes.'

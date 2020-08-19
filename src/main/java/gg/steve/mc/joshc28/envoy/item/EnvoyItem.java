@@ -1,5 +1,7 @@
 package gg.steve.mc.joshc28.envoy.item;
 
+import gg.steve.mc.joshc28.envoy.framework.message.DebugMessage;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import gg.steve.mc.joshc28.envoy.framework.nbt.NBTItem;
 import gg.steve.mc.joshc28.envoy.framework.utils.ItemBuilderUtil;
 import gg.steve.mc.joshc28.envoy.framework.yml.Files;
@@ -51,7 +53,7 @@ public class EnvoyItem implements Listener {
         Block block = event.getClickedBlock();
         event.setCancelled(true);
         if (Files.CONFIG.get().getStringList("blocked-worlds").contains(block.getWorld().getName())) {
-            player.sendMessage("World blocked.");
+            DebugMessage.BLOCKED_WORLD.message(player);
             return;
         }
         if (player.getItemInHand().getAmount() > 1) {
@@ -60,7 +62,7 @@ public class EnvoyItem implements Listener {
             player.setItemInHand(new ItemStack(Material.AIR));
         }
         player.updateInventory();
-        EnvoyTimerManager.start();
-        player.sendMessage(ChatColor.YELLOW + "You have started an envoy!");
+        EnvoyTimerManager.start(true);
+        GeneralMessage.ENVOY_START_PLAYER.message(player);
     }
 }

@@ -4,7 +4,9 @@ block:
 
 spawn-height: 250.0
 
-items-per-envoy: 2
+items-per-envoy:
+  min: 1
+  max: 4
 
 interval: 60 # time in minutes
 

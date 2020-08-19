@@ -5,7 +5,6 @@ import gg.steve.mc.joshc28.envoy.framework.yml.Files;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
-import org.yaml.snakeyaml.tokens.BlockMappingStartToken;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -15,7 +15,22 @@ import java.util.List;
 
 public enum GeneralMessage {
     RELOAD("reload"),
-    HELP("help");
+    HELP("help"),
+    LOOT_ENVOY_CRATE("loot-envoy-crate"),
+    ENVOY_START_PLAYER("envoy-start-player"),
+    ADD_ENVOY_BLOCK("add-envoy-block"),
+    REMOVE_ENVOY_BLOCK("remove-envoy-block"),
+    TIME_BROADCAST("time-broadcast", "{hours}", "{minutes}"),
+    START_BROADCAST("start-broadcast"),
+    END_BROADCAST("end-broadcast"),
+    TIME_QUERY("time-query", "{hours}", "{minutes}"),
+    ENVOY_ACTIVE("envoy-active"),
+    NO_ENVOY_ACTIVE("no-envoy-active"),
+    ADD_LOOT_ITEM("add-loot-item"),
+    GIVE_GIVER("give-giver", "{amount}", "{type}", "{target}"),
+    GIVE_RECEIVER("give-receiver", "{amount}", "{type}"),
+    UPDATE_INTERVAL("update-interval", "{interval}"),
+    ;
 
     private String path;
     private boolean actionBar;

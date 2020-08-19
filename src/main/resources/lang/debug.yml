@@ -12,3 +12,33 @@ invalid-command:
   action-bar: false
   text:
     - '&5&lEnvoys &4(&c&lERROR&4)&d| &7The command you entered is invalid.'
+
+blocked-world:
+  action-bar: false
+  text:
+    '&5&lEnvoys &4(&c&lERROR&4)&d| &7Flares are blocked in this world.'
+
+must-be-holding-item:
+  action-bar: false
+  text:
+    '&5&lEnvoys &4(&c&lERROR&4)&d| &7You must be holding an item.'
+
+invalid-amount:
+  action-bar: false
+  text:
+    '&5&lEnvoys &4(&c&lERROR&4)&d| &7Invalid amount, please enter an integer that is greater than 0.'
+
+unexpected-error:
+  action-bar: false
+  text:
+    '&5&lEnvoys &4(&c&lERROR&4)&d| &7An unexpected error occurred, please check your console.'
+
+target-not-online:
+  action-bar: false
+  text:
+    '&5&lEnvoys &4(&c&lERROR&4)&d| &7The target player must be online.'
+
+invalid-type:
+  action-bar: false
+  text:
+    '&5&lEnvoys &4(&c&lERROR&4)&d| &7Invalid item type, try "tool" or "flare".'

@@ -1,9 +1,9 @@
 package gg.steve.mc.joshc28.envoy.cmd.subs;
 
 import gg.steve.mc.joshc28.envoy.framework.cmd.SubCommand;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import gg.steve.mc.joshc28.envoy.framework.permission.PermissionNode;
 import gg.steve.mc.joshc28.envoy.timer.EnvoyTimerManager;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 public class StartSubCmd extends SubCommand {
@@ -14,10 +14,8 @@ public class StartSubCmd extends SubCommand {
 
     @Override
     public boolean onCommand(CommandSender sender, String[] args) {
-        if (!EnvoyTimerManager.start()) {
-            sender.sendMessage(ChatColor.RED + "There is already an envoy active.");
-        } else {
-            sender.sendMessage(ChatColor.GREEN + "You have started a new envoy.");
+        if (!EnvoyTimerManager.start(false)) {
+            GeneralMessage.ENVOY_ACTIVE.message(sender);
         }
         return true;
     }

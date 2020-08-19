@@ -2,7 +2,6 @@ package gg.steve.mc.joshc28.envoy.loot;
 
 import gg.steve.mc.joshc28.envoy.framework.utils.LogUtil;
 import gg.steve.mc.joshc28.envoy.framework.yml.Files;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;

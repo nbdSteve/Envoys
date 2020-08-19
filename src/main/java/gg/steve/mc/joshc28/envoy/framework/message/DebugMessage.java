@@ -12,7 +12,13 @@ import java.util.List;
 public enum DebugMessage {
     INVALID_COMMAND("invalid-command"),
     INCORRECT_ARGS("incorrect-args"),
-    INSUFFICIENT_PERMISSION("insufficient-permission", "{node}");
+    INSUFFICIENT_PERMISSION("insufficient-permission", "{node}"),
+    BLOCKED_WORLD("blocked-world"),
+    MUST_BE_HOLDING_ITEM("must-be-holding-item"),
+    INVALID_AMOUNT("invalid-amount"),
+    UNEXPECTED_ERROR("unexpected-error"),
+    TARGET_NOT_ONLINE("target-not-online"),
+    INVALID_TYPE("invalid-type");
 
     private String path;
     private boolean actionBar;

@@ -1,6 +1,6 @@
 package gg.steve.mc.joshc28.envoy.block;
 
-import org.bukkit.ChatColor;
+import gg.steve.mc.joshc28.envoy.framework.message.GeneralMessage;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +17,7 @@ public class InteractionListener implements Listener {
         event.setCancelled(true);
         EnvoyBlock envoyBlock = EnvoyBlockManager.getEnvoyBlockFromBlock(block);
         if (envoyBlock.doReward(event.getPlayer())) {
-            event.getPlayer().sendMessage(ChatColor.GOLD + "You have looted an envoy crate");
+            GeneralMessage.LOOT_ENVOY_CRATE.message(event.getPlayer());
         }
     }
 }
